@@ -23,6 +23,8 @@ const options = [
 ];
 
 const getCompletionItems = async ({ input }: { input: string }): Promise<CompleteResult> => {
+  input = input.replace(/^-+/, '')
+
   if (input.length < 2) {
     return { items: [] };
   }
