@@ -25,7 +25,7 @@ const options = [
 const getCompletionItems = async ({ input }: { input: string }): Promise<CompleteResult> => {
   input = input.replace(/^(?![a-zA-Z0-9])+/, '').replace(/^-+/, '');
 
-  if (input.length < 2) {
+  if (input.length < 4) {
     return { items: [] };
   }
 
@@ -35,6 +35,6 @@ const getCompletionItems = async ({ input }: { input: string }): Promise<Complet
   });
 
   return {
-    items: stdout.split('\n').map((word) => ({ word, menu: '[rg]' })),
+    items: stdout.split('\n').map((word) => ({ word })),
   };
 };
